@@ -1,0 +1,104 @@
+/* พื้นหลัง + กริด เหมือนเดิมจากธีม */
+.ds{
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: clamp(20px, 3vw, 36px);
+}
+.ds__container{
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(720px, 980px) minmax(280px, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items: start;
+}
+.ds__left, .ds__right{
+  border-radius:20px;
+  background: linear-gradient(135deg,#f1f8e9,#c8e6c9);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(20px, 2.4vw, 32px);
+  color:#1b5e20;
+}
+.ds__hero h2{ margin:0 0 8px; font-size: clamp(22px, 2.2vw, 34px); }
+.ds__hero p{ margin:0; opacity:.9 }
+
+.ds__tip h4{ margin:0 0 8px; font-size: 18px; }
+.ds__tip ul{ margin:0; padding-left:18px; opacity:.9 }
+
+/* กลาง */
+.ds__main{
+  background:#fff;
+  border:1px solid #e0f2e9;
+  border-radius:20px;
+  box-shadow:0 10px 32px rgba(0,0,0,.12);
+  padding: clamp(20px, 2.4vw, 36px);
+}
+
+/* ฟิลเตอร์: เหลือ 3 คอลัมน์ */
+.ds__filters{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.ds__input, .ds__select{
+  width:100%;
+  padding: 12px 14px;
+  border:1px solid #c8e6c9;
+  border-radius:10px;
+  font-size: 15px;
+  background:#fff;
+}
+.ds__input:focus, .ds__select:focus{
+  outline:none; border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.18);
+}
+
+/* เมต้า */
+.ds__meta{ color:#2e7d32; margin: 4px 0 12px; }
+
+/* การ์ดแพทย์ */
+.ds__grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 1.6vw, 20px);
+}
+.doc{
+  border:1px solid #e0f2e9;
+  border-radius:16px;
+  background:#fff;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.doc__top{ display:flex; gap:14px; align-items:center; }
+.doc__avatar{
+  width:68px; height:68px; border-radius:50%; object-fit:cover;
+  border:2px solid #c8e6c9;
+}
+.doc__info{ flex:1; }
+.doc__name{ margin:0 0 2px; font-size:18px; }
+.doc__sub{ color:#2e7d32; font-weight:600; } /* แสดงเฉพาะชื่อสาขา */
+
+.doc__bottom{
+  margin-top: 2px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.doc__next{ color:#333; }
+
+.btn{ padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-size:15px; }
+.btn--primary{ background: linear-gradient(135deg, #4caf50, #66bb6a); color:#fff; transition: transform .15s, box-shadow .2s; }
+.btn--primary:hover{ transform: translateY(-1px); box-shadow:0 8px 20px rgba(76,175,80,.3); }
+
+/* Responsive */
+@media (max-width: 992px){
+  .ds__container{ grid-template-columns: 1fr; }
+  .ds__left, .ds__right{ display:none; }
+  .ds__filters{ grid-template-columns: 1fr; }
+  .ds__grid{ grid-template-columns: 1fr; }
+}

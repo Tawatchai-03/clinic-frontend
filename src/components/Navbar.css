@@ -1,0 +1,94 @@
+/* ===== NAV (Comfort size) ===== */
+.nav{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(232,245,233,.96), rgba(200,230,201,.96));
+  border-bottom: 1px solid rgba(224,242,233,0.85);
+  box-shadow: 0 4px 22px rgba(27,94,32,0.10);
+  transition: all .25s ease;
+}
+
+/* 👉 กว้างขึ้น + padding มากขึ้น ให้ดูพอดีกับตัวการ์ดกลางหน้าที่ใหญ่ */
+.nav__inner{
+  max-width: 1280px;           /* เดิม 1200 → ขยายเล็กน้อยให้บาลานซ์ */
+  margin: 0 auto;
+  padding: 16px 24px;           /* เดิม 12/20 → เพิ่มความสูง */
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+
+/* Brand ใหญ่ขึ้นนิด */
+.nav__brand{
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 800;
+  color: #1b5e20; text-decoration: none;
+  font-size: 20px;              /* เดิม 18 */
+  letter-spacing: .2px;
+  transition: transform .2s ease;
+}
+.nav__logo{ font-size: 28px; filter: drop-shadow(0 2px 4px rgba(27,94,32,.18)); }
+
+/* เมนูห่างขึ้น + ตัวอักษรใหญ่ขึ้น */
+.nav__menu{ display:flex; align-items:center; gap: 10px; }
+
+.nav__link{
+  padding: 12px 18px;           /* เดิม 10/16 */
+  border-radius: 12px;
+  text-decoration: none;
+  color:#1b5e20;
+  border:1px solid transparent;
+  font-weight: 600;
+  font-size: 15.5px;            /* เดิม ~14 */
+  position: relative;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+.nav__link:hover{ background: rgba(255,255,255,.75); border-color:#c8e6c9; transform: translateY(-2px); box-shadow:0 6px 14px rgba(27,94,32,.16); }
+.nav__link.is-active{ border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.2), 0 6px 16px rgba(76,175,80,.25); background:linear-gradient(135deg,#fff,rgba(255,255,255,.9)); color:#2e7d32; }
+
+/* ปุ่มให้เท่ากับลิงก์ */
+.btn{
+  padding: 12px 18px;           /* เดิม 10/16 */
+  border-radius: 12px;
+  border:1px solid #c8e6c9;
+  cursor:pointer;
+  font-size: 15.5px;
+  font-weight: 600;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  position:relative; overflow:hidden;
+}
+.btn--primary{ border:none; color:#fff; background:linear-gradient(135deg,#4caf50,#66bb6a); box-shadow:0 4px 14px rgba(76,175,80,.32); }
+.btn--primary:hover{ transform: translateY(-2px); box-shadow:0 10px 24px rgba(76,175,80,.42); filter: brightness(1.05); }
+.btn--ghost{ background:#fff; color:#2e7d32; border-color:#c8e6c9; }
+.btn--ghost:hover{ border-color:#4caf50; box-shadow:0 6px 14px rgba(27,94,32,.16); }
+
+/* เมื่อเลื่อนหน้า เพิ่มเงาเล็กน้อย */
+.nav.scrolled{
+  background: linear-gradient(135deg, rgba(232,245,233,.98), rgba(200,230,201,.98));
+  box-shadow: 0 6px 26px rgba(27,94,32,.12);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 1440px){
+  /* จอใหญ่มาก เพิ่มคอนเทนต์อีกนิด */
+  .nav__inner{ max-width: 1360px; padding: 18px 28px; }
+  .nav__brand{ font-size: 21px; }
+  .nav__logo{ font-size: 30px; }
+  .nav__link, .btn{ font-size: 16px; padding: 13px 20px; }
+}
+
+@media (max-width: 900px){
+  /* จอกลาง-เล็ก ลดลงเล็กน้อยให้พอดี */
+  .nav__inner{ padding: 12px 16px; gap: 10px; }
+  .nav__brand{ font-size: 18px; }
+  .nav__logo{ font-size: 24px; }
+  .nav__menu{ gap: 6px; }
+  .nav__link, .btn{ padding: 10px 14px; font-size: 14px; }
+}
+
+@media (max-width: 640px){
+  /* มือถือ: ยังสวยและประหยัดพื้นที่ */
+  .nav__inner{ padding: 10px 14px; }
+  .nav__brand{ font-size: 16px; }
+  .nav__logo{ font-size: 22px; }
+  .nav__link, .btn{ padding: 8px 12px; font-size: 13.5px; }
+}

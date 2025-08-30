@@ -1,0 +1,89 @@
+/* พื้นหลังธีม */
+.ma{
+  min-height:100vh;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: clamp(20px, 3vw, 36px);
+}
+
+/* กริดหลัก: ซ้าย | กลาง | ขวา */
+.ma__container{
+  width:100%;
+  max-width:1680px;
+  display:grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(720px, 980px) minmax(280px, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items:start;
+}
+
+.ma__left, .ma__right{
+  border-radius:20px;
+  background: linear-gradient(135deg,#f1f8e9,#c8e6c9);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(20px, 2.4vw, 32px);
+  color:#1b5e20;
+}
+.ma__hero h2{ margin:0 0 8px; font-size: clamp(22px, 2.2vw, 34px); }
+.ma__hero p{ margin:0; opacity:.9 }
+
+.ma__main{
+  background:#fff;
+  border:1px solid #e0f2e9;
+  border-radius:20px;
+  box-shadow:0 10px 32px rgba(0,0,0,.12);
+  padding: clamp(20px, 2.4vw, 36px);
+}
+
+/* Tabs */
+.ma__tabs{ display:flex; gap:10px; margin-bottom:12px; }
+.tab{
+  padding:10px 14px; border-radius:10px; border:1px solid #c8e6c9; background:#fff;
+  cursor:pointer; transition: box-shadow .2s, transform .1s, border-color .2s;
+}
+.tab:hover{ transform: translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.tab.is-active{ border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.18); }
+
+/* List */
+.ma__empty{ padding:26px; text-align:center; color:#2e7d32; }
+.ma__list{ display:flex; flex-direction:column; gap:12px; }
+
+.appt{
+  display:flex; gap:14px; align-items:flex-start;
+  border:1px solid #e0f2e9; border-radius:16px; background:#fff; padding:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.appt__avatar{
+  width:64px; height:64px; border-radius:50%; object-fit:cover;
+  border:2px solid #c8e6c9;
+}
+.appt__body{ flex:1; }
+.appt__title{ display:flex; align-items:center; gap:10px; }
+.appt__title h3{ margin:0; font-size:18px; }
+.badge{
+  padding:4px 10px; border-radius:999px; font-size:12px; border:1px solid;
+}
+.badge--upcoming{ color:#2e7d32; border-color:#a5d6a7; background:#e8f5e9; }
+.badge--past{ color:#37474f; border-color:#cfd8dc; background:#eceff1; }
+.badge--cancelled{ color:#b71c1c; border-color:#ef9a9a; background:#ffebee; }
+
+.appt__meta{ color:#4a4a4a; display:flex; gap:8px; margin-top:4px; }
+.appt__spec{ color:#2e7d32; font-weight:600; }
+.appt__note{ margin-top:6px; }
+
+.appt__actions{ margin-top:10px; display:flex; gap:8px; }
+.btn{ padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-size:15px; }
+.btn--primary{ background: linear-gradient(135deg, #4caf50, #66bb6a); color:#fff; }
+.btn--ghost{ background:#fff; border:1px solid #c8e6c9; color:#2e7d32; }
+.btn--danger{ background:#c62828; color:#fff; }
+
+/* ขวา */
+.ma__tip h4{ margin:0 0 10px; }
+.ma__tip ul{ margin:0; padding-left:18px; opacity:.9 }
+
+/* Responsive */
+@media (max-width: 992px){
+  .ma__container{ grid-template-columns: 1fr; }
+  .ma__left, .ma__right{ display:none; }
+}

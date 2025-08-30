@@ -1,0 +1,115 @@
+/* พื้นหลังธีมเดียวกัน */
+.apt{
+  min-height:100vh;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: clamp(20px, 3vw, 36px);
+}
+
+/* layout 3 คอลัมน์: ซ้าย | กลาง | ขวา */
+.apt__container{
+  width:100%;
+  max-width: 1680px;
+  display:grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(720px, 980px) minmax(280px, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items: start;
+}
+
+/* ซ้าย/ขวา พาเนลอ่อน */
+.apt__left, .apt__right{
+  border-radius:20px;
+  background: linear-gradient(135deg,#f1f8e9,#c8e6c9);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(20px, 2.4vw, 32px);
+  color:#1b5e20;
+}
+.apt__hero h2{ margin:0 0 8px; font-size: clamp(22px, 2.2vw, 34px); }
+.apt__hero p{ margin:0; opacity:.9 }
+
+.summary h4{ margin:0 0 10px; }
+.summary__row{ display:flex; justify-content:space-between; margin-bottom:6px; }
+.summary__note{ margin-top:10px; opacity:.85; }
+
+/* การ์ดหลัก */
+.apt__main{
+  background:#fff;
+  border:1px solid #e0f2e9;
+  border-radius:20px;
+  box-shadow:0 10px 32px rgba(0,0,0,.12);
+  padding: clamp(20px, 2.4vw, 36px);
+}
+
+/* ส่วนหัวหมอ */
+.docHeader{
+  display:flex; align-items:center; gap:14px;
+  border-bottom: 1px solid #e0f2e9;
+  padding-bottom:14px; margin-bottom:14px;
+}
+.docHeader__avatar{
+  width:72px; height:72px; border-radius:50%; object-fit:cover;
+  border:2px solid #c8e6c9;
+}
+.docHeader__meta{ flex:1; }
+.docHeader__name{ margin:0 0 2px; }
+.docHeader__sub{ color:#2e7d32; font-weight:600; }
+.docHeader__back{ text-decoration:none; color:#2e7d32; }
+
+/* เลือกวัน/เวลา */
+.apt__section{ margin-top:8px; }
+.apt__label{ margin:0 0 8px; }
+.apt__hint{ color:#4a4a4a; font-weight:normal; }
+
+/* แถบวันแนวนอน */
+.dayStrip{
+  display:flex; gap:10px; overflow:auto; padding-bottom:4px;
+}
+.dayStrip__item{
+  min-width:86px;
+  border:1px solid #c8e6c9; border-radius:12px; background:#fff;
+  padding:10px 8px; text-align:center; cursor:pointer;
+  transition: transform .1s, box-shadow .2s, border-color .2s;
+}
+.dayStrip__item:hover{ transform: translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.dayStrip__dow{ color:#2e7d32; font-weight:600; font-size:14px; }
+.dayStrip__date{ font-size:18px; }
+.dayStrip__mon{ opacity:.8; }
+
+.dayStrip__item.is-active{
+  border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.18);
+}
+
+/* slot เวลา */
+.slotGrid{
+  display:grid; grid-template-columns: repeat(4, 1fr);
+  gap:10px;
+}
+.slot{
+  padding:12px 10px; border-radius:10px; border:1px solid #c8e6c9; background:#fff;
+  cursor:pointer; transition: transform .1s, box-shadow .2s, border-color .2s;
+}
+.slot:hover{ transform: translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.slot.is-active{ border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.18); }
+.slot:disabled{ opacity:.5; cursor:not-allowed; text-decoration: line-through; }
+
+/* ปุ่มยืนยัน */
+.apt__actions{
+  margin-top: 16px;
+  display:flex; gap:10px; justify-content:flex-end;
+}
+.btn{ padding:12px 16px; border-radius:10px; border:none; cursor:pointer; font-size:15px; }
+.btn--primary{ background: linear-gradient(135deg, #4caf50, #66bb6a); color:#fff; transition: transform .15s, box-shadow .2s; }
+.btn--primary:hover{ transform: translateY(-1px); box-shadow:0 8px 20px rgba(76,175,80,.3); }
+.btn--ghost{ background:#fff; border:1px solid #c8e6c9; color:#2e7d32; }
+
+/* Responsive */
+@media (max-width: 992px){
+  .apt__container{ grid-template-columns: 1fr; }
+  .apt__left, .apt__right{ display:none; }
+  .slotGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px){
+  .slotGrid{ grid-template-columns: repeat(2, 1fr); }
+}

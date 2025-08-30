@@ -1,0 +1,127 @@
+/* ==== พื้นหลังรวม (เดิมคงไว้) ==== */
+.login{
+  min-height:100vh;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: clamp(20px, 3vw, 36px); /* padding มากขึ้นนิด */
+}
+
+/* ==== กริดหลัก: ซ้าย | ฟอร์ม | ขวา ==== */
+/* ปรับสัดส่วนคอลัมน์ให้ฟอร์มใหญ่ขึ้นและยืดสูงเท่ากัน */
+.login__container{
+  width: 100%;
+  max-width: 1680px;                     /* กว้างขึ้นนิด */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(640px, 860px) minmax(320px, 440px);
+  gap: clamp(20px, 2.2vw, 32px);
+  align-items: stretch;                  /* ✅ ยืดความสูงให้เท่ากัน */
+}
+
+/* ==== บล็อคซ้าย ==== */
+.login__left{
+  border-radius: 20px;
+  background: linear-gradient(135deg,#f1f8e9,#c8e6c9);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(24px, 2.6vw, 40px);
+  color:#1b5e20;
+  display:flex;                          /* ให้จัดเนื้อหาภายในดูโปร่ง */
+  align-items:flex-start;
+}
+.login__hero h2{ margin:0 0 10px; font-size: clamp(22px, 2.4vw, 34px); line-height:1.25; }
+.login__hero p{ margin:0; opacity:.9 }
+
+/* ==== การ์ดฟอร์มกลาง ==== */
+/* เพิ่ม padding/gap และ min-height ให้ไม่ดูสั้น */
+.login__card{
+  background:#fff;
+  padding: clamp(28px, 3vw, 48px);
+  border-radius:20px;
+  box-shadow:0 10px 32px rgba(0,0,0,.12);
+  border:1px solid #e0f2e9;
+  text-align:center;
+  display:flex;
+  flex-direction:column;                 /* header + form + footer เรียงแนวตั้ง */
+  min-height: clamp(560px, 68vh, 760px); /* ✅ ยืดความสูงการ์ด */
+}
+.login__brand{ display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:12px; }
+.login__logo{ font-size:2rem; }
+
+/* เพิ่มซับไตเติลใต้หัวข้อ ช่วยให้โปร่งขึ้น (ถ้าใส่ JSX เพิ่มได้) */
+.login__subtitle{ color:#4a4a4a; margin: 0 0 18px; }
+
+/* ฟอร์ม: เพิ่มช่องว่างและขนาด */
+.login__form{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 1.6vw, 20px);         /* ✅ ช่องไฟมากขึ้น */
+  text-align:left;
+  margin-top: 6px;
+}
+.form-group label{ display:block; margin-bottom:6px; color:#2e7d32; font-weight:600; }
+.form-group input{
+  width:100%;
+  padding:14px 16px;                     /* หนาขึ้นเล็กน้อย */
+  border:1px solid #c8e6c9;
+  border-radius:12px;
+  font-size:16px;
+}
+.form-group input:focus{
+  outline:none; border-color:#4caf50; box-shadow:0 0 0 3px rgba(76,175,80,.18);
+}
+.form-group.full{ grid-column: 1 / -1; }
+
+/* แถวจดจำ/ลืมรหัสผ่าน */
+.login__row{
+  grid-column: 1 / -1;
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top: -2px;
+}
+
+/* ปุ่ม */
+.btn{ padding:16px; border-radius:12px; border:none; cursor:pointer; font-size:16px; }
+.btn--primary{ background: linear-gradient(135deg, #4caf50, #66bb6a); color:#fff; transition: transform .15s, box-shadow .2s; }
+.btn--primary:hover{ transform: translateY(-2px); box-shadow:0 8px 20px rgba(76,175,80,.3); }
+.btn.full{ grid-column:1 / -1; }
+
+.login__footer{ margin-top:16px; }
+
+/* ==== บล็อคขวา (รูปภาพ) ==== */
+/* ทำให้สูงเท่าการ์ดโดยอัตโนมัติและมี padding เล็กน้อย */
+.login__rightPanel{
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(8px, 1vw, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border:1px solid rgba(76,175,80,.18);
+}
+.login__image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;                   /* ขอบในนุ่ม ๆ */
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 1200px){
+  .login__container{
+    grid-template-columns: minmax(260px, 1fr) minmax(560px, 760px) minmax(280px, 1fr);
+  }
+}
+
+@media (max-width: 992px){
+  .login__container{ grid-template-columns: 1fr; }
+  .login__left, .login__rightPanel{ display:none; }  /* Tablet/Mobile: โฟกัสที่ฟอร์ม */
+  .login__form{ grid-template-columns: 1fr; }
+  .login__card{ min-height: auto; }                  /* ไม่บังคับความสูงบนจอเล็ก */
+}
+
+@media (max-width: 720px){
+  .login{ padding: 16px; }
+}
